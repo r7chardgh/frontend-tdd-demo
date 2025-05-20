@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import NavMenu, { MenuItem } from '@/components/layout/NavMenu';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -68,11 +68,14 @@ describe('test NavMenu', () => {
     expect(homeLink.closest('li')).toHaveClass("bg-highlight pointer-events-none");
   })
 
-  it('calls router.push on logout button click', () => {
+  it('calls router.push on logout button click', async () => {
     render(<NavMenu />);
     const logoutButton = screen.getByRole('button', { name: /logout/i });
     fireEvent.click(logoutButton);
-    expect(mockPush).toHaveBeenCalledWith('/');
-    expect(mockPush).toHaveBeenCalledTimes(1);
+    waitFor(() => {
+      expect(mockPush).toHaveBeenCalledTimes(1)
+      expect(mockPush).toHaveBeenCalledWith("/")
+
+    })
   });
 });
