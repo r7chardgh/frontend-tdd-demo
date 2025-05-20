@@ -6,13 +6,9 @@ export default function Layout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body>
-                <main className="flex h-svh bg-gray-100">
-                    <NavMenu />
-                    <section className="p-8">{children}</section>
-                </main>
-            </body>
-        </html>
+        <main className="flex h-svh bg-gray-100">
+            <NavMenu />
+            <section className="p-8">{children}</section>
+        </main>
     )
 }
