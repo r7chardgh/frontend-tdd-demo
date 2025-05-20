@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import foodPricesReducer from './features/foodPrice/foodPricesSlice';
+import loginReducer from './features/login/loginSlice';
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            foodPrices:foodPricesReducer
+            login: loginReducer
         }
     })
 }
