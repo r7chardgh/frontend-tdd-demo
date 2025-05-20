@@ -5,7 +5,10 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import { Roboto } from 'next/font/google';
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
+import StoreProvider from "./StoreProvider";
+import MuiButton from "@/components/common/MuiButton";
+import NavMenu from "@/components/layout/NavMenu";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,9 +41,11 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
-        <AppRouterCacheProvider>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
-            {children}
+            <StoreProvider>
+              {children}
+            </StoreProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
