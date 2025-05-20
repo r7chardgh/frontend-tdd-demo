@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test-components":"npx jest --testPathPattern components"
+    "test-components":"npx jest --testPathPattern components",
+    "test-redux":"npx jest --testPathPattern redux"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
