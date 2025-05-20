@@ -7,7 +7,7 @@ export default async function Home() {
     redirect('/home');
   }
   return (
-    <main className={` pointer-events-none grayscale`}>
+    <main className={`${!!cookieStore.has('secret') ? "pointer-events-none grayscale" : ""}`}>
       <section className="h-svh flex justify-center items-center  bg-gray-300">
         <LoginForm />
       </section>
