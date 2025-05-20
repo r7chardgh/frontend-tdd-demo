@@ -1,8 +1,9 @@
 'use client';
 import React from 'react'
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import MuiButton from '../common/MuiButton';
+import axiosInstance from '@/lib/axios';
 
 export const MenuItem = ({
     children, path
@@ -17,8 +18,9 @@ export const MenuItem = ({
 const NavMenu = () => {
     const router = useRouter();
 
-    const handleLogout = () => {
-        router.push('/');
+    const handleLogout = async () => {
+        const res = await axiosInstance.get('/api/logout')
+        if (res.status === 200) router.push('/');
     };
     return (
         <nav className="w-32 bg-gray-800 text-white py-9 h-full flex flex-col">
