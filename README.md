@@ -1,6 +1,8 @@
 # Frontend Tdd Demo
 Frontend Tdd Demo is a frontend web launcher tested with nextjs(v15), redux, jest&react, including login, logout and dashboard pages.
 
+[Demo Site](https://frontend-tdd-demo.vercel.app/)
+
 ## Installation
 Clone from this github repo via https
  
@@ -37,8 +39,8 @@ npm run test
 ## Login
 
 demo account
-email:admin@admin.com
-password:password
+email: `admin@admin.com` 
+password: `password`
 
 ## Public API
 
