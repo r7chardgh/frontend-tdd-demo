@@ -34,6 +34,17 @@ Run the tests
 npm run test
 ```
 
+## Login
+
+demo account
+email:admin@admin.com
+password:password
+
+## Public API
+
+using 'https://api.hkma.gov.hk/public/hkimr/food-price'
+from [DataGovHK](https://data.gov.hk/en/)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
