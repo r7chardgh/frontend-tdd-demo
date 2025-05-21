@@ -33,7 +33,7 @@ const LoginForm = () => {
   //A LOT MORE WORK TO IMPROVE,BUT I DON'T HAVE TIME TO DO IT
   //validate for email & password
   return (
-    <div className='flex flex-col gap-3 p-9 w-full sm:w-100 mx-auto rounded-sm shadow-lg bg-gray-100'>
+    <div className='flex flex-col gap-9 p-9 w-full sm:w-100 mx-auto rounded-sm shadow-lg bg-gray-100'>
 
       <h1 className=' capitalize font-bold text-3xl'>Login</h1>
       <form data-testid="test:form" className='flex flex-col gap-6' onSubmit={e => handleSubmit(e)}>
