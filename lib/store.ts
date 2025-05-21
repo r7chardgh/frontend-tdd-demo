@@ -4,7 +4,8 @@ import loginReducer from './features/login/loginSlice';
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            login: loginReducer
+            login: loginReducer,
+            foodPrice:foodPricesReducer
         }
     })
 }
