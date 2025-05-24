@@ -8,7 +8,7 @@ export default function Layout({
     return (
         <main className="flex h-svh bg-gray-100">
             <NavMenu />
-            <section className="p-8">{children}</section>
+            <section className="p-8 flex-1 bg-red-800 overflow-scroll">{children}</section>
         </main>
-    )
+    )   
 }

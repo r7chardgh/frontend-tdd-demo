@@ -1,9 +1,9 @@
 "use client"
-import {  CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import {  FoodPriceRecord } from '@/lib/definition';
+import { FoodPriceRecord } from '@/lib/definition';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import {  RootState } from '@/lib/store';
+import { RootState } from '@/lib/store';
 import { fetchFoodPrices } from '@/lib/features/foodPrice/foodPricesSlice';
 import axios from 'axios';
 const FoodPriceTable = () => {
@@ -14,7 +14,7 @@ const FoodPriceTable = () => {
   useEffect(() => {
     async function fetchData() {
       await dispatch(fetchFoodPrices());
-      
+
     }
     fetchData();
   }, [dispatch]);
@@ -23,8 +23,8 @@ const FoodPriceTable = () => {
     "year", "bread", "tobacco", "coffee", "milk", "beef", "pork", "rice", "tea", "sugar", "salt", "beer"
   ];
 
-  return !!data && (
-    <TableContainer component={Paper} sx={{ maxHeight: 420 }} className='min-w-[660px]'>
+  return !!data && data.header.success ? (
+    <TableContainer component={Paper} sx={{ maxHeight: 420 }} className='w-full'>
       <Table stickyHeader aria-label="simple table" >
         <TableHead>
           <TableRow>
@@ -32,8 +32,7 @@ const FoodPriceTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {status === "loading" && <CircularProgress />
-          }
+
           {data.result.datasize > 0 && data.result.records.map((record: FoodPriceRecord, i: number) => {
             return (<TableRow
               key={i}
@@ -58,7 +57,8 @@ const FoodPriceTable = () => {
         </TableBody>
       </Table>
     </TableContainer>
-  )
+  ) : status === "loading" ? <CircularProgress /> : <div>No data</div>
+
 }
 
 export default FoodPriceTable
